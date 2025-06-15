@@ -22,16 +22,18 @@ public class Order {
     }
 
     public String getPaymentMethod() {
-        return paymentMethod.getName(); // contoh: "Cash" atau "E-Wallet"
+        return paymentMethod.getName();
     }
 
     public int getTotalPrice() {
-        return paymentMethod.calculatePayment(movie.getPrice() * quantity);
+        return paymentMethod.calculatePayment(movie.getPrice(), quantity);
     }
 
     @Override
     public String toString() {
-        return "Movie: " + movie.getTitle() + ", Quantity: " + quantity +
-               ", Payment: " + getPaymentMethod() + ", Total: Rp" + getTotalPrice();
+        return "Movie: " + movie.getTitle()
+             + ", Quantity: " + quantity
+             + ", Payment: " + getPaymentMethod()
+             + ", Total: Rp" + getTotalPrice();
     }
 }
