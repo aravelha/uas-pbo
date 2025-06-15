@@ -1,6 +1,5 @@
 package model;
 
-import model.Movie;
 import model.payment.PaymentMethod;
 
 public class Order {
