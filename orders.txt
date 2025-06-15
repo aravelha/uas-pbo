@@ -1,0 +1,2 @@
+Movie: Inside Out 2, Quantity: 2, Payment: Cash, Total: Rp100000
+Movie: Inside Out 2, Quantity: 3, Payment: E-Wallet, Total: Rp142500
