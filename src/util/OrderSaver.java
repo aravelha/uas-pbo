@@ -1,6 +1,6 @@
-package app.util;
+package util;
 
-import app.model.Order;
+import model.Order;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

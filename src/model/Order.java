@@ -1,6 +1,7 @@
-package app.model;
+package model;
 
-import app.model.payment.PaymentMethod;
+import model.Movie;
+import model.payment.PaymentMethod;
 
 public class Order {
     private Movie movie;
