@@ -6,3 +6,5 @@ Movie: Avengers, Quantity: 1, Payment: E-Wallet, Total: Rp40000
 Movie: Avengers, Quantity: 2, Payment: E-Wallet, Total: Rp80000
 Movie: Avengers, Quantity: 2, Payment: E-Wallet, Total: Rp80000
 Movie: Avengers, Quantity: 2, Payment: E-Wallet, Total: Rp76000
+Movie: Interstellar, Quantity: 2, Payment: E-Wallet, Total: Rp76000
+Movie: Avatar, Quantity: 2, Payment: Cash, Total: Rp76000
