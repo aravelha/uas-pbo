@@ -9,14 +9,13 @@ import model.payment.PaymentMethod;
 import util.OrderSaver;
 
 public class BookingService {
-    private List<Movie> movies; // Making the list of the available movies
+    private List<Movie> movies;
 
     public BookingService() {
         movies = new ArrayList<>();
-        initMovies(); // Initialize available movies
+        initMovies();
     }
 
-    // Main method to run the booking service
     public void run() {
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -40,14 +39,12 @@ public class BookingService {
         } while (choice != 0);
     }
 
-    // Initialize movies list
     public void initMovies() {
-        movies.add(new Movie2D("Avengers", 40000, 30)); // Example 2D movie
-        movies.add(new Movie3D("Avatar", 38000, 35)); // Example 3D movie
-        movies.add(new MovieIMAX("Interstellar", 40000, 20)); // Example IMAX movie
+        movies.add(new Movie2D("Avengers", 40000, 30));
+        movies.add(new Movie3D("Avatar", 38000, 35));
+        movies.add(new MovieIMAX("Interstellar", 40000, 20));
     }
 
-    // Show all available movies
     public void showMovies() {
         System.out.println("\n============================================================");
         System.out.println("                         DAFTAR FILM TERSEDIA");
@@ -68,16 +65,13 @@ public class BookingService {
         System.out.println("-------------------------------------------------------------");
     }
 
-    // Logic to book a ticket
     public void bookTicket() {
         Scanner scanner = new Scanner(System.in);
 
-        // Display available movies
         showMovies();
         System.out.print("Pilih film (1 - " + movies.size() + "): ");
         int movieChoice = scanner.nextInt();
 
-        // Validate input
         if (movieChoice < 1 || movieChoice > movies.size()) {
             System.out.println("Pilihan tidak valid!");
             return;
@@ -85,54 +79,52 @@ public class BookingService {
 
         Movie selectedMovie = movies.get(movieChoice - 1);
 
-        // Ask for quantity
         System.out.print("Jumlah tiket: ");
         int quantity = scanner.nextInt();
 
-        // Check ticket availability
         if (quantity > selectedMovie.getAvailableTickets()) {
             System.out.println("Maaf, tiket yang tersedia hanya " + selectedMovie.getAvailableTickets());
             return;
         }
 
-        // Ask for payment method
         System.out.println("Pilih metode pembayaran:");
         System.out.println("1. Cash");
         System.out.println("2. E-Wallet");
         System.out.print("Masukkan pilihan: ");
         int paymentChoice = scanner.nextInt();
 
-        PaymentMethod paymentMethod;
-        if (paymentChoice == 2) {
-            paymentMethod = new EWalletPayment();
-        } else {
-            paymentMethod = new CashPayment(); // Default is cash
-        }
+        PaymentMethod paymentMethod = (paymentChoice == 2) ? new EWalletPayment() : new CashPayment();
 
-        // Reduce ticket stock
         selectedMovie.reduceTickets(quantity);
 
-        // Create and process order
         Order order = new Order(selectedMovie, quantity, paymentMethod);
         saveOrderToFile(order);
 
-        // Show final result
+        int hargaAwal = selectedMovie.getPrice() * quantity;
+        int totalBayar = order.getTotalPrice(); // sudah termasuk diskon jika pakai e-wallet
+
         System.out.println("\n===================================");
         System.out.println("        PESANAN BERHASIL");
         System.out.println("===================================");
-        System.out.println("Judul Film     : " + order.getMovie().getTitle());
-        System.out.println("Jumlah Tiket   : " + order.getQuantity());
+        System.out.println("Judul Film     : " + selectedMovie.getTitle());
+        System.out.println("Jumlah Tiket   : " + quantity);
         System.out.println("Metode Pembayaran   : " + order.getPaymentMethod());
-        System.out.printf("Total Bayar    : Rp%,d%n", order.getTotalPrice());
+
+        if (paymentMethod instanceof EWalletPayment) {
+            System.out.printf("Harga Awal     : Rp%,d%n", hargaAwal);
+            System.out.printf("Total setelah diskon 5%%: Rp%,d%n", totalBayar);
+        }
+
+        System.out.printf("Total Bayar    : Rp%,d%n", totalBayar);
         System.out.println("===================================\n");
-    }
+    } // ✅ TUTUP method bookTicket()
 
     public void viewOrders() {
         System.out.println("Current Orders:");
-        OrderSaver.readOrders(); // Note the static call
+        OrderSaver.readOrders();
     }
 
     public void saveOrderToFile(Order order) {
-        OrderSaver.saveOrder(order); // Static method call
+        OrderSaver.saveOrder(order);
     }
 }
