@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import model.payment.CashPayment;
 import model.payment.EWalletPayment;
 import model.payment.PaymentMethod;
@@ -50,9 +49,9 @@ public class BookingService {
 
     // Show all available movies
     public void showMovies() {
-        System.out.println("\n===========================================");
-        System.out.println("            DAFTAR FILM TERSEDIA");
-        System.out.println("===========================================");
+        System.out.println("\n=======================================================");
+        System.out.println("                         DAFTAR FILM TERSEDIA");
+        System.out.println("===============================================================");
         System.out.printf("%-4s %-20s %-10s %-10s %-10s%n", "No", "Judul", "Harga", "Tipe", "Tiket");
         System.out.println("-------------------------------------------------------------");
 
