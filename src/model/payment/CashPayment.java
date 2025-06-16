@@ -12,5 +12,4 @@ public class CashPayment implements PaymentMethod {
         System.out.printf("Total Pembelian tiket adalah Rp%,d untuk %d tiket%n", totalPrice, qty);
         return totalPrice;
     }
-  
 }
