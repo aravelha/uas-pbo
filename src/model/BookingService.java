@@ -49,7 +49,7 @@ public class BookingService {
 
     // Show all available movies
     public void showMovies() {
-        System.out.println("\n=======================================================");
+        System.out.println("\n============================================================");
         System.out.println("                         DAFTAR FILM TERSEDIA");
         System.out.println("===============================================================");
         System.out.printf("%-4s %-20s %-10s %-10s %-10s%n", "No", "Judul", "Harga", "Tipe", "Tiket");
@@ -109,7 +109,7 @@ public class BookingService {
             paymentMethod = new CashPayment(); // Default is cash
         }
 
-        // ✅ Reduce ticket stock
+        // Reduce ticket stock
         selectedMovie.reduceTickets(quantity);
 
         // Create and process order

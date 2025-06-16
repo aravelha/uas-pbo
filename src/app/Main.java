@@ -1,4 +1,4 @@
-package app; // or remove this line if you're not using a package
+package app; 
 
 import model.BookingService;
 
