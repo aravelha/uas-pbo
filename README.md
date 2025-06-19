@@ -67,5 +67,5 @@ Setelah program dijalankan, ikuti petunjuk pada layar untuk melakukan pemesanan 
 
 > 💡 Catatan: Jika file `orders.txt` belum ada, program akan membuatnya secara otomatis saat pesanan pertama disimpan.
 
-##Developer
+## Developer
 Rahel Veralda Hutahaean, Thara Carissa Kameshwara, Callysta Cendikia Diba Putri, Dimas Adityea, Muhammad Rafi Zaydan.
