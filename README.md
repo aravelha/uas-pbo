@@ -9,23 +9,20 @@ Program Java sederhana berbasis terminal yang mensimulasikan sistem pemesanan ti
 - Memesan tiket
 - Memilih metode pembayaran (Tunai / E-Wallet dengan diskon 5%)
 - Menyimpan dan menampilkan riwayat pemesanan melalui `orders.txt`
-- Implementasi penuh konsep OOP (Object-Oriented Programming)
 
-### Cara Menjalankan di Terminal
-
+### 📟 Cara Menjalankan di Terminal
 1. Buka terminal di folder root (`uas-pbo/`)
 2. Jalankan:
    ```
    run.bat
    ```
-
 Atau jalankan secara manual
 ```
 javac -d out src/**/*.java
 java -cp out app.Main
 ```
 
-### Struktur Folder
+### 🗃️ Struktur Folder
 ```
 src/
 ├── app/Main.java
@@ -67,5 +64,5 @@ Setelah program dijalankan, ikuti petunjuk pada layar untuk melakukan pemesanan 
 
 > 💡 Catatan: Jika file `orders.txt` belum ada, program akan membuatnya secara otomatis saat pesanan pertama disimpan.
 
-## Developer
+## 👩🏻‍💻 Developer
 Rahel Veralda Hutahaean, Thara Carissa Kameshwara, Callysta Cendikia Diba Putri, Dimas Adityea, Muhammad Rafi Zaydan.
