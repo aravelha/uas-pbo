@@ -39,14 +39,20 @@ public class BookingService {
         } while (choice != 0);
     }
 
-    public void initMovies() {
-        movies.add(new Movie2D("Avengers", 40000, 30));
-        movies.add(new Movie3D("Avatar", 38000, 35));
-        movies.add(new MovieIMAX("Interstellar", 40000, 20));
+public void initMovies() {
+    Movie[] movieArray = {
+        new Movie2D("Avengers", 40000, 30),
+        new Movie3D("Avatar", 38000, 35),
+        new MovieIMAX("Interstellar", 40000, 20)
+    };
+
+    for (Movie movie : movieArray) {
+        movies.add(movie);
     }
+}
 
     public void showMovies() {
-        System.out.println("\n============================================================");
+        System.out.println("\n===============================================================");
         System.out.println("                         DAFTAR FILM TERSEDIA");
         System.out.println("===============================================================");
         System.out.printf("%-4s %-20s %-10s %-10s %-10s%n", "No", "Judul", "Harga", "Tipe", "Tiket");
@@ -101,7 +107,7 @@ public class BookingService {
         saveOrderToFile(order);
 
         int hargaAwal = selectedMovie.getPrice() * quantity;
-        int totalBayar = order.getTotalPrice(); // sudah termasuk diskon jika pakai e-wallet
+        int totalBayar = order.getTotalPrice();
 
         System.out.println("\n===================================");
         System.out.println("        PESANAN BERHASIL");
@@ -117,7 +123,7 @@ public class BookingService {
 
         System.out.printf("Total Bayar    : Rp%,d%n", totalBayar);
         System.out.println("===================================\n");
-    } // ✅ TUTUP method bookTicket()
+    }
 
     public void viewOrders() {
         System.out.println("Current Orders:");
